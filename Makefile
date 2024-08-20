@@ -31,6 +31,12 @@ ui: ## Build UI
 	@(cd ui; npm i ; npm run build; )
 	@ls -l ui/build
 
+.PHONY: ui_no_bin_links
+ui_no_bin_links: ## Build UI
+	@(echo "Building UI (without bin links) ..." )
+	@(cd ui; npm i --no-bin-links; npm run buildfulllink; )
+	@ls -l ui/build
+
 .PHONY: backend
 backend: ## Build Backend
 	@(echo "Building Backend ..." )
